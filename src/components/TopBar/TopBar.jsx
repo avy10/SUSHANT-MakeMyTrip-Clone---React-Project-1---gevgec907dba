@@ -4,6 +4,7 @@ import Navbar from "../Navbar";
 import { Outlet } from "react-router-dom";
 import logo from "../../images/logo1.png";
 import bag from "../../images/bag.png";
+import my from "../../images/my.png";
 import LoginModal from "../../LoginModal";
 
 function TopBar() {
@@ -35,6 +36,7 @@ function TopBar() {
             </div>
             <div>
               <div className="login" onClick={handleOpen}>
+                {/* <img src={my} width="30px" height="30px" /> */}
                 <p>Login or Create Account</p>
               </div>
               <LoginModal open={open} handleClose={handleClose} />

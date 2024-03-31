@@ -11,6 +11,8 @@ import bus from "../../images/bus1.png";
 import cab from "../../images/cab1.png";
 import forex from "../../images/forex1.png";
 import travel from "../../images/travel1.png";
+import bag from "../../images/bag.png";
+
 
 import { Link, useLocation } from "react-router-dom";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
@@ -82,14 +84,25 @@ function Header() {
         </div>
         {/* </div> */}
         <div className="right">
-          <div className="first">
-            <button>login</button>
+          <div className="d-flex">
+            <div className="p-2">
+              <img src={bag} alt="" width="30" height="30" />
+            </div>
           </div>
-          <div>
-            <button>country</button>
-          </div>
-          <div>
-            <button>Language</button>
+          <div
+            className="p-0"
+            style={{
+              height: "20px",
+              lineHeight: "0",
+              marginTop: "16px",
+              marginRight: "12px",
+              fontSize: "12px",
+            }}
+          >
+            <p style={{ color: "black", fontWeight: "600" }}>Login or</p>
+            <p style={{ color: "black", fontWeight: "400" }}>
+              Create Account
+            </p>
           </div>
         </div>
       </div>

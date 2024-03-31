@@ -44,7 +44,7 @@ function Flights() {
           </div>
           <div className="card-container d-flex ">
             <div
-              className="card rounded-start rounded-0 p-1 ps-4"
+              className="card rounded-start rounded-0 p-1 px-4"
               style={{ width: "300px", height: "112px" }}
             >
               <p>From</p>
@@ -60,12 +60,17 @@ function Flights() {
                     {...params}
                     label="Search airports"
                     variant="outlined"
+                    InputProps={{
+                      ...params.InputProps,
+                      // startAdornment: <p>From</p>, // Add "From" as start adornment
+                      style: { border: "none" }, // Remove border
+                    }}
                   />
                 )}
               />
             </div>
             <div
-              className="card rounded-0 p-1 ps-4"
+              className="card rounded-0 p-1 px-4"
               style={{ width: "300px", height: "112px" }}
             >
               <p>To</p>
@@ -86,7 +91,7 @@ function Flights() {
               />
             </div>
             <div
-              className="card rounded-0 p-1 ps-4"
+              className="card rounded-0 p-1 px-4"
               style={{ width: "158px", height: "112px" }}
             >
               <p>Departure</p>
