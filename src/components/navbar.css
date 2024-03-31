@@ -1,0 +1,28 @@
+.nav-label {
+  /* width: 90px;
+    height: 58px; */
+  line-height: 17px;
+  font-size: 14px;
+  font-family: "Mukta", "Lato", sans-serif;
+  font-weight: 400;
+  color: #4a4a4a;
+}
+.navs {
+  position: relative;
+  top: 44px;
+  z-index: 110;
+}
+.navs a {
+  text-decoration: none;
+}
+.selected {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 3px solid #008cff;
+  height: 100%;
+}
+.card-nav {
+  padding-bottom: 16px;
+  border-radius: 0;
+}
