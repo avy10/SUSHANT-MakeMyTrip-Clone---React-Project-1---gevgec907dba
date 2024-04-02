@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header/Header';
 import TopBar from './TopBar/TopBar';
+import Offers from './Offers/Offers';
 
 function Home() {
   return (
@@ -8,6 +9,7 @@ function Home() {
       
     <Header />
     <TopBar />
+    <Offers />
       <h1>Start Home</h1>
       <h1>Home 1</h1>
       <h1>Home 2</h1>
