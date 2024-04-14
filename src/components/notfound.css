@@ -1,0 +1,27 @@
+.shake-container {
+  animation: shakeAnimation 0.5s ease-in-out infinite;
+  margin-top: 60px;
+}
+
+@keyframes shakeAnimation {
+  0% {
+    transform: translateX(0); /* Initial position */
+  }
+  25% {
+    transform: translateX(-10px); /* Move left */
+  }
+  50% {
+    transform: translateX(10px); /* Move right */
+  }
+  75% {
+    transform: translateX(-10px); /* Move left */
+  }
+  100% {
+    transform: translateX(0); /* Back to initial position */
+  }
+}
+
+h1 {
+  font-family: "Mukta", "Lato", sans-serif;
+  color: #1a2c31;
+}

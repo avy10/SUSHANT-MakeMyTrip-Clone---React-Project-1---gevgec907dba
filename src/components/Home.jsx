@@ -2,62 +2,22 @@ import React from 'react';
 import Header from './Header/Header';
 import TopBar from './TopBar/TopBar';
 import Offers from './Offers/Offers';
+import Footer from './Footer/Footer';
+import UpperFooter from './Footer/UpperFooter';
+import AppLink from './AppLink/AppLink';
 
 function Home() {
   return (
-    <div>
+    <div style={{backgroundColor: '#f2f2f2'}}>
       
     <Header />
     <TopBar />
     <Offers />
-      <h1>Start Home</h1>
-      <h1>Home 1</h1>
-      <h1>Home 2</h1>
-      <h1>Home 3</h1>
-      <h1>Home 4</h1>
-      <h1>Home 5</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
+
+    <AppLink />
+
+    <UpperFooter />
+    <Footer />
     </div>
   )
 }

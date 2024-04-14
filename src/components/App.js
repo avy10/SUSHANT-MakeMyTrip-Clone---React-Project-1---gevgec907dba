@@ -11,6 +11,8 @@ import Navbar from "./Navbar";
 import TopBar from "./TopBar/TopBar";
 import Test from "./Test";
 import Hotels from "./Hotels";
+import Trains from "./Trains/Trains";
+import Buses from "./Buses/Buses";
 
 function App() {
   return (
@@ -21,6 +23,9 @@ function App() {
           <Route path="/" element={<Flights />} />
           <Route path="/flights" element={<Flights />} />
           <Route path="/hotels" element={<Hotels />} />
+          <Route path="/trains" element={<Trains />} />
+          <Route path="/buses" element={<Buses />} />
+          <Route path="/notfound" element={<NotFound />} />
         </Route>
         <Route path="/header" element={<Header />} />
 

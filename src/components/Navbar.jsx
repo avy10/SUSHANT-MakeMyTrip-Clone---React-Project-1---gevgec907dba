@@ -16,13 +16,13 @@ import "./navbar.css";
 const data = [
   { id: 1, label: "Flights", icon: flight2, icon1: flight2, link: "flights" },
   { id: 2, label: "Hotels", icon: hotel, icon1: flight, link: "hotels" },
-  { id: 3, label: "Homestays & Villas", icon: home, icon1: flight, link: "home" },
-  { id: 4, label: "Holiday Packages", icon: holiday, icon1: flight, link: "holiday" },
   { id: 5, label: "Trains", icon: train, icon1: flight, link: "trains" },
   { id: 6, label: "Buses", icon: bus, icon1: flight, link: "buses" },
-  { id: 7, label: "Cabs", icon: cab, icon1: flight, link: "cabs" },
-  { id: 8, label: "Forex Card & Currency", icon: forex, icon1: flight, link: "forex" },
-  { id: 9, label: "Travel Insurance", icon: travel, icon1: flight, link: "travel" },
+  { id: 7, label: "Cabs", icon: cab, icon1: flight, link: "notfound" },
+  { id: 4, label: "Holiday Packages", icon: holiday, icon1: flight, link: "notfound" },
+  { id: 3, label: "Homestays & Villas", icon: home, icon1: flight, link: "notfound" },
+  { id: 9, label: "Travel Insurance", icon: travel, icon1: flight, link: "notfound" },
+  { id: 8, label: "Forex Card & Currency", icon: forex, icon1: flight, link: "notfound" },
 ];
 
 function Navbar() {

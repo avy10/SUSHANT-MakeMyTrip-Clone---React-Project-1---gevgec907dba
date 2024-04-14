@@ -20,13 +20,13 @@ import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 const data = [
   { id: 1, label: "Flights", icon: flight, link: "flights" },
   { id: 2, label: "Hotels", icon: hotel, link: "hotels" },
-  { id: 3, label: "Homestays & Villas", icon: home, link: "flights" },
-  { id: 4, label: "Holiday Packages", icon: holiday, link: "flights" },
-  { id: 5, label: "Trains", icon: train, link: "flights" },
-  { id: 6, label: "Buses", icon: bus, link: "flights" },
-  { id: 7, label: "Cabs", icon: cab, link: "flights" },
-  { id: 8, label: "Forex Card & Currency", icon: forex, link: "flights" },
-  { id: 9, label: "Travel Insurance", icon: travel, link: "flights" },
+  { id: 5, label: "Trains", icon: train, link: "trains" },
+  { id: 6, label: "Buses", icon: bus, link: "buses" },
+  { id: 7, label: "Cabs", icon: cab, link: "notfound" },
+  { id: 4, label: "Holiday Packages", icon: holiday, link: "notfound" },
+  { id: 3, label: "Homestays & Villas", icon: home, link: "notfound" },
+  { id: 9, label: "Travel Insurance", icon: travel, link: "notfound" },
+  { id: 8, label: "Forex Card & Currency", icon: forex, link: "notfound" },
 ];
 
 function Header() {

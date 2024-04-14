@@ -1,3 +1,52 @@
-.offers{
-    margin: 40px 10%;
+.offers {
+  margin: 40px 10%;
+}
+
+.offer-card {
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.offer-img img {
+  width: 134px;
+  height: 134px;
+  border-radius: 4px;
+}
+.scrollable-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.title p {
+  font-size: 12px;
+  font-family: "Mukta", "Lato", sans-serif;
+  color: #4a4a4a;
+  font-weight: 550;
+  margin: 0;
+}
+.title1 p {
+  font-size: 16px;
+  font-family: "Mukta", "Lato", sans-serif;
+  color: #000000;
+  font-weight: 550;
+  margin: 0;
+}
+.title2 p {
+  font-size: 16px;
+  font-family: "Mukta", "Lato", sans-serif;
+  color: #4a4a4a;
+  font-weight: 500;
+  margin: 0;
+}
+
+.head {
+  justify-content: space-between;
+}
+.view-btn {
+  font-size: 16px;
+  font-family: "Mukta", "Lato", sans-serif;
+  color: #008cff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.custom-indicator {
+  color: rgb(21, 238, 253); /* Change the font color of the indicator */
 }
