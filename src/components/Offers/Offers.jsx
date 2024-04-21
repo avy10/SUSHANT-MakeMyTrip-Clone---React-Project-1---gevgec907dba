@@ -105,7 +105,7 @@ function Offers() {
           ) : (
             <div className="row gy-3 gx-3 my-1">
               {offers.slice(0, showAll ? offers.length : 6).map((offer) => (
-                <div className="col-md-4 col-sm-6 col-12" key={offer.id}>
+                <div className="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" key={offer.id}>
                   <div className="card shadow p-2">
                     <div className="d-flex">
                       <div className="offer-img">

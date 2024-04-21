@@ -34,13 +34,13 @@ function TopBar() {
               <p style={{color: 'white', fontWeight: '600'}}>My Trips</p>
               <p style={{color: '#C2C2C2', fontWeight: '400'}}>Manage your bookings</p>
             </div>
-            <div>
+            {/* <div>
               <div className="login" onClick={handleOpen}>
-                {/* <img src={my} width="30px" height="30px" /> */}
                 <p>Login or Create Account</p>
               </div>
               <LoginModal open={open} handleClose={handleClose} />
-            </div>
+            </div> */}
+                {/* <img src={my} width="30px" height="30px" /> */}
           </div>
         </div>
         <Navbar />

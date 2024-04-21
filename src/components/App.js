@@ -13,6 +13,7 @@ import Test from "./Test";
 import Hotels from "./Hotels";
 import Trains from "./Trains/Trains";
 import Buses from "./Buses/Buses";
+import FlightSearch from "./FlightSearch/FlightSearch";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
           <Route path="/notfound" element={<NotFound />} />
         </Route>
         <Route path="/header" element={<Header />} />
+        <Route path="/flightSearch" element={<FlightSearch />} />
+
 
         {/* <Route path="/*" element={<NotFound />} /> */}
       </Routes>

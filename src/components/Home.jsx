@@ -14,9 +14,9 @@ function Home() {
     <TopBar />
     <Offers />
 
-    <AppLink />
+    {/* <AppLink /> */}
 
-    <UpperFooter />
+    {/* <UpperFooter /> */}
     <Footer />
     </div>
   )

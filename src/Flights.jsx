@@ -2,11 +2,26 @@ import React, { useEffect, useState } from "react";
 
 import "./flights.css";
 import { Autocomplete, TextField } from "@mui/material";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import dayjs from "dayjs";
+import "dayjs/locale/en-in";
+import "dayjs/locale/de";
+import "dayjs/locale/it";
+import "dayjs/locale/en-gb";
+import { useNavigate } from "react-router-dom";
+
+const BoldOptionLabel = ({ children }) => {
+  return <strong>{children}</strong>;
+};
 
 function Flights() {
   const [airportNames, setAirportNames] = useState([]);
   const [fromTerm, setFromTerm] = useState(null);
   const [toTerm, setToTerm] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(dayjs());
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(
@@ -35,23 +50,27 @@ function Flights() {
   const handleToChange = (event, newValue) => {
     setToTerm(newValue);
   };
+  const userLocale = "en-in";
+  const handleSearch = () => {
+    navigate("/flightSearch", {
+      state: {
+        source: fromTerm?.iata_code,
+        destination: toTerm?.iata_code,
+        day: selectedDate.format("ddd"),
+      },
+    });
+  };
   return (
     <>
       <div className="d-flex justify-content-center align-items-center">
         <div className="content card">
-          <div className="ps-3">
-            <h5>One Way</h5>
-          </div>
-          <div className="card-container d-flex ">
-            <div
-              className="card rounded-start rounded-0 p-1 px-4"
-              style={{ width: "300px", height: "112px" }}
-            >
+          <div className="row">
+            <div className="col-12 col-md-4 card rounded-start rounded-0 p-1 px-4 py-3">
               <p>From</p>
               <Autocomplete
                 options={airportNames}
                 getOptionLabel={(option) =>
-                  `${option.city}, ${option.country} - ${option.name} (${option.iata_code})`
+                  `${option.city},\n${option.iata_code}, ${option.name} `
                 }
                 value={fromTerm}
                 onChange={handleFromChange}
@@ -60,24 +79,22 @@ function Flights() {
                     {...params}
                     label="Search airports"
                     variant="outlined"
+                    multiline
+                    rows={3}
                     InputProps={{
                       ...params.InputProps,
-                      // startAdornment: <p>From</p>, // Add "From" as start adornment
-                      style: { border: "none" }, // Remove border
+                      style: { border: "none" },
                     }}
                   />
                 )}
               />
             </div>
-            <div
-              className="card rounded-0 p-1 px-4"
-              style={{ width: "300px", height: "112px" }}
-            >
+            <div className="col-12 col-md-4 card rounded-0 p-1 px-4 py-3">
               <p>To</p>
               <Autocomplete
                 options={airportNames}
                 getOptionLabel={(option) =>
-                  `${option.city}, ${option.country} - ${option.name} (${option.iata_code})`
+                  `${option.city},\n${option.iata_code}, ${option.name} `
                 }
                 value={toTerm}
                 onChange={handleToChange}
@@ -86,33 +103,37 @@ function Flights() {
                     {...params}
                     label="Search airports"
                     variant="outlined"
+                    multiline
+                    rows={3}
+                    InputProps={{
+                      ...params.InputProps,
+                      style: { border: "none" },
+                    }}
                   />
                 )}
               />
             </div>
-            <div
-              className="card rounded-0 p-1 px-4"
-              style={{ width: "158px", height: "112px" }}
-            >
+            <div className="col-12 col-md-2 card rounded-0 p-1 px-4 py-3">
               <p>Departure</p>
+              <LocalizationProvider
+                dateAdapter={AdapterDayjs}
+                adapterLocale={userLocale}
+              >
+                <DatePicker
+                  label="Select Date"
+                  value={selectedDate}
+                  onChange={(newValue) => setSelectedDate(newValue)}
+                />
+              </LocalizationProvider>
             </div>
-            <div
-              className="card rounded-0 p-1 ps-4"
-              style={{ width: "158px", height: "112px" }}
-            >
-              <p>Return</p>
-            </div>
-            <div
-              className="card rounded-0 rounded-end p-1 ps-4"
-              style={{ width: "214px", height: "112px" }}
-            >
-              <p>Traveller & Class</p>
+            <div className="col-12 col-md-2 card rounded-0 rounded-end p-1 ps-4">
+              Traveller & Class
             </div>
           </div>
         </div>
       </div>
       <div className="search-btn">
-        <button>SEARCH</button>
+        <button onClick={handleSearch}>SEARCH</button>
       </div>
     </>
   );
