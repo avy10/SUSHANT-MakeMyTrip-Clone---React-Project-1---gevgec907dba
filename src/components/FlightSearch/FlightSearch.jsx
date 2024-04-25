@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import "./flightSearch.css";
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import Header from "../Header/Header";
+import Flights from "../../Flights";
+import HeaderSearch from "../Header/HeaderSearch";
+import FlightNew from "../../FlightNew";
 
 const FlightSearch = () => {
   const location = useLocation();
@@ -32,20 +38,64 @@ const FlightSearch = () => {
 
   return (
     <>
-      <div className="p-4" style={{backgroundColor: '#E5EEF4'}}>
-        <h1>Flight Search</h1>
+      <div className="top-color"></div>
+      <div style={{ paddingBottom: "70px" }}>
+        <HeaderSearch />
+      </div>
+      <div className="p-4" style={{ backgroundColor: "#E5EEF4" }}>
         <div className="container">
+          <div style={{}}>
+            <FlightNew source={source} destination={destination} day={day} />
+          </div>
+          <div className="card border-0" style={{backgroundColor: '#113965'}}>
+            <p style={{ fontSize: "28px", color: "white", fontWeight: '600' }}>
+              Flights from {source} to {destination}
+            </p>
+          </div>
           <div className="row">
             {flights.map((flight) => (
-              <div className="card shadow my-2 mx-2" key={flight._id}>
-                <div className="col-12">
-                  <h1>{flight.departureTime}</h1>
-                  <p>Arrival : {flight.arrivalTime}</p>
-                  <p>Departure : {flight.departureTime}</p>
-                  <p>Source : {flight.source}</p>
-                  <p>Destination : {flight.destination}</p>
-                  <p>Stops : {flight.stops}</p>
-                  <p>Price {flight.ticketPrice}</p>
+              <div
+                className="card my-2 mx-2 p-2 rounded-0 border-0"
+                key={flight._id}
+              >
+                <div className="col-12 d-flex justify-content-evenly align-items-center">
+                  <div className="arrival">
+                    <div className="time">
+                      <p>{flight.arrivalTime}</p>
+                    </div>
+                    <div className="city">
+                      <p>{flight.source}</p>
+                    </div>
+                  </div>
+                  <div style={{ textAlign: "center", lineHeight: "0" }}>
+                    <p>{flight.duration} hour</p>
+                    <p
+                      style={{ fontWeight: "1000", color: "rgb(81, 226, 194)" }}
+                    >
+                      __________
+                    </p>
+                  </div>
+                  <div className="departure align-items-center">
+                    <div className="time">
+                      <p>{flight.departureTime}</p>
+                    </div>
+                    <div className="city">
+                      <p>{flight.destination}</p>
+                    </div>
+                  </div>
+                  <div style={{ textAlign: "center", lineHeight: "12px" }}>
+                    <p
+                      style={{
+                        fontWeight: "700",
+                        fontSize: "24px",
+                        alignItems: "center",
+                      }}
+                    >
+                      <CurrencyRupeeIcon />
+                      <span>{flight.ticketPrice} </span>
+                    </p>
+                    <p>per adult</p>
+                  </div>
                 </div>
               </div>
             ))}

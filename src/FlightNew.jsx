@@ -11,13 +11,12 @@ import "dayjs/locale/de";
 import "dayjs/locale/it";
 import "dayjs/locale/en-gb";
 import { useNavigate } from "react-router-dom";
-import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 
 const BoldOptionLabel = ({ children }) => {
   return <strong>{children}</strong>;
 };
 
-function Flights() {
+function FlightNew({ source, destination, day }) {
   const [airportNames, setAirportNames] = useState([]);
   const [fromTerm, setFromTerm] = useState(null);
   const [toTerm, setToTerm] = useState(null);
@@ -38,10 +37,20 @@ function Flights() {
       .then((apiData) => {
         setAirportNames(apiData?.data?.airports);
         if (apiData?.data?.airports?.length > 0) {
-          setFromTerm(apiData.data.airports[0]);
+          const hyderabadAirport = apiData.data.airports.find(
+            (airport) => airport.iata_code === source
+          );
+          if (hyderabadAirport) {
+            setFromTerm(hyderabadAirport);
+          }
         }
         if (apiData?.data?.airports?.length > 0) {
-          setToTerm(apiData.data.airports[1]);
+          const hyderabadAirport = apiData.data.airports.find(
+            (airport) => airport.iata_code === destination
+          );
+          if (hyderabadAirport) {
+            setToTerm(hyderabadAirport);
+          }
         }
       });
   }, []);
@@ -63,44 +72,30 @@ function Flights() {
   };
   return (
     <>
-      <div className="d-flex justify-content-center align-items-center">
-        <div className="content container card">
+      <div className="d-flex justify-content-center align-items-center container">
+        <div className="content1 w-100">
           <div className="row">
             <div className="col-12 col-md-4 card rounded-start rounded-0 p-1 px-4 py-3">
               <p style={{ marginBottom: "-2px" }}>From</p>
               <Autocomplete
                 options={airportNames}
                 getOptionLabel={(option) =>
-                  `${option.city}, \n${option.iata_code}, ${option.name}`
+                  `${option.city},\n${option.iata_code}, ${option.name} `
                 }
                 value={fromTerm}
                 onChange={handleFromChange}
                 renderInput={(params) => (
                   <TextField
                     {...params}
+                    // label="Search airports"
                     variant="standard"
                     multiline
                     rows={3}
                     InputProps={{
                       ...params.InputProps,
-                      // style: { border: "none" },
+                      style: { border: "none" },
                     }}
                   />
-                )}
-                renderOption={(props, option) => (
-                  <div
-                    style={{ padding: "12px 4px 0 12px", alignItems: "top" }}
-                    {...props}
-                  >
-                    {/* <div style={{ fontSize: "13px", alignItems: 'initial' ,justifyContent: 'initial', display: 'flex', height: '100%'}}>
-                      <FlightTakeoffIcon/>
-                    </div> */}
-                    <p style={{ fontSize: "13px", textAlign: "left" }}>
-                      <strong>{option.city}</strong>,{option.iata_code},
-                      <br></br>
-                      {option.name}
-                    </p>
-                  </div>
                 )}
               />
             </div>
@@ -116,7 +111,6 @@ function Flights() {
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    // label="Search airports"
                     variant="standard"
                     multiline
                     rows={3}
@@ -135,7 +129,6 @@ function Flights() {
                 adapterLocale={userLocale}
               >
                 <DatePicker
-                  // label="Select Date"
                   value={selectedDate}
                   onChange={(newValue) => setSelectedDate(newValue)}
                 />
@@ -154,4 +147,4 @@ function Flights() {
   );
 }
 
-export default Flights;
+export default FlightNew;

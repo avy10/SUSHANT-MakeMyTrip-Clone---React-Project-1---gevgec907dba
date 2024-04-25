@@ -13,7 +13,6 @@ import forex from "../../images/forex1.png";
 import travel from "../../images/travel1.png";
 import bag from "../../images/bag.png";
 
-
 import { Link, useLocation } from "react-router-dom";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 
@@ -29,37 +28,19 @@ const data = [
   { id: 8, label: "Forex Card & Currency", icon: forex, link: "/notfound" },
 ];
 
-function Header() {
-  const [nav, setNav] = useState(false);
-  const location = useLocation();
-
-  const handleChange = () => {
-    if (window.scrollY >= 150) {
-      setNav(true);
-    } else {
-      setNav(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleChange);
-    return () => window.removeEventListener("scroll", handleChange);
-  }, []);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
-
+function HeaderSearch() {
   const refreshPage = () => {
     window.location.reload();
   };
 
   return (
     <>
-      <div className={nav ? "header" : "disnone"}>
+      <div className="header1">
         {/* <div className="left"> */}
-        <div className="logo" onClick={refreshPage}>
-          <img src={logo} alt="logo" />
+        <div className="logo">
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
         </div>
         <div className="navbar">
           <ul>
@@ -100,9 +81,7 @@ function Header() {
             }}
           >
             <p style={{ color: "black", fontWeight: "600" }}>Login or</p>
-            <p style={{ color: "black", fontWeight: "400" }}>
-              Create Account
-            </p>
+            <p style={{ color: "black", fontWeight: "400" }}>Create Account</p>
           </div>
         </div>
       </div>
@@ -110,4 +89,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderSearch;

@@ -1,0 +1,10 @@
+.time p{
+    font-size: 29px;
+    font-weight: 600;
+}
+.top-color {
+    height: 480px;
+    background-image: linear-gradient(0deg, #15457b, #051423);
+    width: 100%;
+    position: absolute;
+  }
